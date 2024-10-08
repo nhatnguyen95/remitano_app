@@ -1,5 +1,6 @@
 import Container from 'components/atoms/Container';
 import MovieTemplate from 'components/templates/MovieTemplate';
+import {TEST_ID} from 'configs/Constants';
 import useBooking from 'hooks/useBooking';
 import React from 'react';
 import {selectBookedMovies} from 'store/slices/moviesSlice';
@@ -15,6 +16,7 @@ const ListBookedScreen: React.FC = () => {
   return (
     <Container>
       <MovieTemplate
+        testID={TEST_ID['list-booked']}
         movies={bookedMovies}
         onBooking={navigateToBookingScreen}
       />

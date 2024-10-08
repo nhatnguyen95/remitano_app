@@ -14,6 +14,7 @@
       "@configs/*": ["configs/*"],
       "@assets/*": ["assets/*"],
       "@utils/*": ["utils/*"]
-    }
+    },
+    "types": ["detox"]
   }
 }

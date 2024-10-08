@@ -11,6 +11,7 @@ interface MovileListProps {
   onRefresh: () => void;
   onBooking?: (id: number) => void;
   onFavorite?: (id: number, value: boolean) => void;
+  testID?: string;
 }
 
 const MovieList: React.FC<MovileListProps> = ({
@@ -19,6 +20,7 @@ const MovieList: React.FC<MovileListProps> = ({
   onRefresh,
   onBooking,
   onFavorite,
+  testID,
 }) => {
   const _renderItem = ({item}: {item: Movie}) => {
     return (
@@ -33,6 +35,7 @@ const MovieList: React.FC<MovileListProps> = ({
 
   return (
     <FlashList
+      testID={testID}
       data={movies}
       renderItem={_renderItem}
       keyExtractor={item => `i-${item.id}`}

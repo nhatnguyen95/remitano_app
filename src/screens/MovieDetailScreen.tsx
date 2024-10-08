@@ -3,6 +3,7 @@ import Button from 'components/atoms/Button';
 import Container from 'components/atoms/Container';
 import Text from 'components/atoms/Text';
 import CommonStyles from 'configs/CommonStyles';
+import {TEST_ID} from 'configs/Constants';
 import useBooking from 'hooks/useBooking';
 import {useAppNavigation, useAppRoute} from 'navigation/RootNavigation';
 import React from 'react';
@@ -49,6 +50,9 @@ const MovieDetailScreen: React.FC = () => {
         </View>
       </ScrollView>
       <Button
+        testID={
+          isBooking ? TEST_ID['btn-cancel-booking'] : TEST_ID['btn-book-now']
+        }
         style={styles.button}
         onPress={isBooking ? cancelBooking : handleBooking}>
         <Text>{isBooking ? 'Booked' : 'Book now'}</Text>

@@ -22,7 +22,7 @@ export type AppDispatch = typeof store.dispatch;
 const persistConfig: PersistConfig<RootState> = {
   key: 'root',
   storage: AsyncStorage,
-  blacklist: [],
+  blacklist: ['movies'],
 };
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);

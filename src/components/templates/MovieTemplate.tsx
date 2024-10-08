@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, View, ViewProps} from 'react-native';
 import {Movie} from '../../types/movie';
 import MovieList from 'components/organisms/MovieList';
+import {TEST_ID} from 'configs/Constants';
 
 interface MovieTemplateProps extends ViewProps {
   movies: Movie[];
@@ -22,6 +23,7 @@ const MovieTemplate: React.FC<MovieTemplateProps> = ({
   return (
     <View {...props} style={[styles.container, props.style]}>
       <MovieList
+        testID={TEST_ID['list-movie']}
         movies={movies}
         onRefresh={refetch}
         refreshing={refreshing ?? false}

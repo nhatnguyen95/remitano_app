@@ -15,6 +15,7 @@ import {Movie} from '../../types/movie';
 import CommonStyles from 'configs/CommonStyles';
 import Button from 'components/atoms/Button';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {TEST_ID} from 'configs/Constants';
 
 interface MovieCardProps extends ViewProps {
   movie: Movie;
@@ -38,17 +39,27 @@ const MovieCard: React.FC<MovieCardProps> = ({
   };
 
   return (
-    <Card style={[CommonStyles.flexRow.default, styles.container, style]}>
+    <Card
+      style={[CommonStyles.flexRow.default, styles.container, style]}
+      testID={`${TEST_ID['movie-item']}-${movie.id}`}>
       <Image source={{uri: movie.thumbnailUrl}} style={styles.image} />
       <View style={styles.infoContainer}>
         <Text variant="titleMedium">{movie.name}</Text>
         <Text variant="bodyMedium">{movie.description}</Text>
-        <Button style={styles.button} onPress={_onPress}>
+        <Button
+          testID={`${TEST_ID['manage-booking']}-${movie.id}`}
+          style={styles.button}
+          onPress={_onPress}>
           <Text>Manage booking</Text>
         </Button>
       </View>
       {onFavorite ? (
         <Icon
+          testID={
+            !movie.isFavorite
+              ? `${TEST_ID['favorite-movie']}-${movie.id}`
+              : `${TEST_ID['un-favorite-movie']}-${movie.id}`
+          }
           onPress={_onPressFavorite}
           style={styles.icon}
           name={movie.isFavorite ? 'heart' : 'heart-outline'}

@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ListBookedScreen from 'screens/ListBookedScreen';
 import ListFavoriteScreen from 'screens/ListFavoriteScreen';
 import ListMovieScreen from 'screens/ListMovieScreen';
+import {TEST_ID} from 'configs/Constants';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,6 +17,7 @@ const BottomTabs: React.FC<any> = () => {
         options={{
           tabBarLabel: 'Movies',
           tabBarIcon: () => _renderIcon('wrench-outline'),
+          tabBarTestID: TEST_ID['tab-movies'],
         }}
         name="Movies"
         component={ListMovieScreen}
@@ -24,6 +26,7 @@ const BottomTabs: React.FC<any> = () => {
         options={{
           tabBarLabel: 'Favorites',
           tabBarIcon: () => _renderIcon('bell-ring-outline'),
+          tabBarTestID: TEST_ID['tab-favorites'],
         }}
         name="Favorites"
         component={ListFavoriteScreen}
@@ -32,6 +35,7 @@ const BottomTabs: React.FC<any> = () => {
         options={{
           tabBarLabel: 'Booked',
           tabBarIcon: () => _renderIcon('cog-outline'),
+          tabBarTestID: TEST_ID['tab-booked'],
         }}
         name="Booked"
         component={ListBookedScreen}
